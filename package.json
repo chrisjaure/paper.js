@@ -11,7 +11,7 @@
 	}],
 	"homepage": "http://paperjs.org",
 	"keywords": ["canvas", "graphic", "graphics", "vector", "paper.js"], 	
-	"repository": "git://github.com/paperjs/paper.js/",
+	"repository": "git://github.com/chrisjaure/paper.js/",
 	"dependencies": {
 		"canvas": ">= 0.7.0"
 	},
