@@ -2469,7 +2469,7 @@ function(name) {
 				param.offset = prevOffset;
 				// If the item has a blendMode, use BlendMode#process to
 				// composite its canvas on the parentCanvas.
-				if (item._blendMode !== 'normal') {
+				if (item._blendMode !== 'normal' && options.browser) {
 					// The pixel offset of the temporary canvas to the parent
 					// canvas.
 					BlendMode.process(item._blendMode, ctx, parentCtx,
@@ -2479,6 +2479,9 @@ function(name) {
 				// the temporary canvas on the parent canvas.
 					parentCtx.save();
 					parentCtx.globalAlpha = item._opacity;
+					if (options.server) {
+						parentCtx.globalCompositeOperation = item._blendMode;
+					}
 					parentCtx.drawImage(tempCanvas, itemOffset.x, itemOffset.y);
 					parentCtx.restore();
 				}
